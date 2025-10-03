@@ -44,7 +44,10 @@ class ObjectDetectorHelper(
 ) {
 
     private var interpreter: Interpreter? = null
-    private var labels: List<String> = listOf("closed valve", "opened valve")
+
+    private var labels: List<String> = listOf("Lever Handle Valve Threaded", "Wheel Handle Valve Threaded")
+
+    //private var labels: List<String> = listOf("Lever Handle Butterfly Valve", "Lever Handle Valve Flanged", "Lever Handle Valve Threaded", "Wheel Handle Butterfly Valve", "Wheel Handle Valve Flanged", "Wheel Handle Valve Threaded", "Wheel Handle Valve Y-Type Flanged", "Wheel Handle Valve Y-Type Threaded")
     private var modelInputWidth: Int = 640
     private var modelInputHeight: Int = 640
     private var numModelClasses: Int = 2
@@ -349,7 +352,7 @@ class ObjectDetectorHelper(
 
         const val TAG = "ObjectDetectorHelper"
     }
-    enum class Model(val fileName: String) { CustomModel("metadata1.tflite") }
+    enum class Model(val fileName: String) { CustomModel("metadata_oct1.tflite") }
     enum class Delegate(val value: Int) { CPU(0), NNAPI(1) }
     data class DetectionResult(val detections: List<Detection>, val inferenceTime: Long, val inputImageHeight: Int, val inputImageWidth: Int)
     data class Detection(val label: String, val boundingBox: RectF, val score: Float)
